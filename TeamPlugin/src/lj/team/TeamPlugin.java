@@ -21,9 +21,8 @@ public class TeamPlugin extends JavaPlugin
     {
         if (!getDataFolder().exists())
             getDataFolder().mkdir();
-        File file = new File(getDataFolder(), "config.yml");
-        if (!file.exists())
-            saveDefaultConfig();
+
+        saveDefaultConfig();
         reloadConfig();
         getLogger().info("Team plugin load. Author : LJ. Version : 1.0");
         config = getConfig();
@@ -50,24 +49,11 @@ public class TeamPlugin extends JavaPlugin
             player.sendMessage("§a/team apply [玩家名] 申请加入[玩家名]所在的队伍");
             return true;
         }
-        else if (args.length == 1)
+        else if (args[0].equalsIgnoreCase("detail"))
         {
-            return commandWith1Args(player, args);
+            TeamDetail teamDetail = new TeamDetail(player);
+            return teamDetail.command(args);
         }
         return false;
-    }
-
-    private boolean commandWith1Args(Player player, String[] args)
-    {
-        switch (args[0])
-        {
-            case "detail":
-            {
-                String detail = "§a一名玩家担任队长，由该名玩家邀请其他未组队的玩家。\n在队伍中的玩家平分获得的经验与物品。\n对于珍惜物品（装备、马鞍等），由玩家roll进行分配\\n其余物品（矿产）平分。\n其余功能：非队长玩家可以选择传送到队长身边。";
-                player.sendMessage(detail);
-                return true;
-            }
-        }
-        return true;
     }
 }
