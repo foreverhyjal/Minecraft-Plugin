@@ -1,3 +1,5 @@
 MinecraftPlugin/out/*
 MinecraftPlugin/.idea/*
 MinecraftServer/*
+TeamPlugin/out/*
+TeamPlugin/.idea/*

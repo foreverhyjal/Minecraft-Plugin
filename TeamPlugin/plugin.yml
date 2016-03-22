@@ -1,0 +1,7 @@
+name: team
+main: lj.team.TeamPlugin
+version: 1.0
+commands:
+  team:
+    description: 组队插件，允许玩家创建队伍。
+    usage: /team 查看帮助指令
