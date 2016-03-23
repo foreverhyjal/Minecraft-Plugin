@@ -26,6 +26,8 @@ public class TeamPlugin extends JavaPlugin
         reloadConfig();
         getLogger().info("Team plugin load. Author : LJ. Version : 1.0");
         config = getConfig();
+
+        getServer().getPluginManager().registerEvents(new PickupListener(), this);
     }
 
     @Override
